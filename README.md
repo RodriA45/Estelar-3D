@@ -64,11 +64,7 @@ Sigue estos pasos para correr el simulador en tu máquina local:
 
 ## 📸 Screenshots & Galería
 
-*(💡 Reemplaza estos links con imágenes de tu carpeta `/public/` o de Imgur)*
-
-*   **Tierra Fotorealista:** `![Earth](link-a-tu-imagen)`
-*   **Estrella Binaria (Próxima Centauri):** `![Binary Star](link-a-tu-imagen)`
-*   **Agujero Negro:** `![Black Hole](link-a-tu-imagen)`
+![Solar System Preview](public/screenshots/preview.png)
 
 ---
 
