@@ -73,7 +73,7 @@ export default function Universe({
       isAutoNavigating.current = true;
     } else {
       targetLookAt.current.set(0, 0, 0);
-      targetCameraPos.current.set(0, 0, 35); // Set closer to inner planets
+      targetCameraPos.current.set(30, 25, 45); // High isometric overview of the solar system
       isAutoNavigating.current = true;
     }
   }, [activeTarget, resetCameraToggle]);
