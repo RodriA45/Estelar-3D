@@ -366,6 +366,9 @@ export default function Spaceship({ isPiloting, shipModel = 'ranger' }) {
       </group>
 
       <group ref={shipRef}>
+        {/* Local ship light so it's never pitch black in deep space */}
+        <pointLight position={[0, 3, 3]} intensity={1.5} distance={20} decay={2} color="#ffffff" />
+        
         {/* Localized OrbitControls for the Ship */}
         <OrbitControls 
           ref={controlsRef}
