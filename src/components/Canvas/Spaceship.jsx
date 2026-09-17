@@ -63,7 +63,7 @@ const rangerFinGeo = createWingGeometry(1.6, 0.5, 1.6, -0.6);
 const RangerModel = () => {
 
   return (
-    <group scale={0.05} rotation={[0, Math.PI, 0]}>
+    <group scale={0.05}>
       {/* Main Hull — tapered, rounded fuselage */}
       <mesh geometry={rangerHullGeo} castShadow receiveShadow>
         <meshStandardMaterial color="#d7dade" metalness={0.65} roughness={0.35} />
@@ -222,7 +222,7 @@ const xwingWingGeo = createWingGeometry(4.4, 0.6, 5.0, -1.2);
 const XWingModel = () => {
 
   return (
-    <group scale={0.05} rotation={[0, Math.PI, 0]}>
+    <group scale={0.06}>
       {/* Fuselage */}
       <mesh geometry={xwingHullGeo}>
         <meshStandardMaterial color="#e8e8e6" metalness={0.5} roughness={0.5} />
