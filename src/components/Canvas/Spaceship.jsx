@@ -311,10 +311,24 @@ export default function Spaceship({ isPiloting, shipModel = 'ranger' }) {
     // Add a slight banking roll effect based on curvature (optional polish)
     shipRef.current.rotateZ(Math.sin(progress.current * Math.PI * 4) * 0.3);
 
-    // Follow the ship with the camera (translation only, allows user to Orbit freely)
+    // Follow the ship with the camera
     if (controlsRef.current) {
-      const diff = point.clone().sub(prevShipPos.current);
-      camera.position.add(diff);
+      // Get the ship's PREVIOUS tangent from the last frame
+      const prevTangent = tourCurve.getTangentAt(Math.max(0, progress.current - delta * 0.02));
+      
+      // Calculate how much the ship rotated this frame
+      const rotationDelta = new THREE.Quaternion().setFromUnitVectors(prevTangent, tangent);
+      
+      // Get the current camera offset relative to the ship's previous position
+      const cameraOffset = camera.position.clone().sub(prevShipPos.current);
+      
+      // Rotate the camera offset by the same amount the ship turned
+      cameraOffset.applyQuaternion(rotationDelta);
+      
+      // Apply the new position: ship's new point + rotated offset
+      camera.position.copy(point).add(cameraOffset);
+      
+      // Update target and previous position
       controlsRef.current.target.copy(point);
       prevShipPos.current.copy(point);
     }
