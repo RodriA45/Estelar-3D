@@ -575,6 +575,11 @@ export default function Overlay({ activeTarget, setActiveTarget, cameraDistance,
           <div className="text-[10px] md:text-xs text-white/30 uppercase tracking-widest font-mono text-center md:text-left">
             {`SECTOR: ${activeBodyData?.isFictional ? 'EXTRAGALÁCTICO' : 'VÍA LÁCTEA'}`}
           </div>
+          
+          <div className="text-[10px] md:text-xs text-white/50 tracking-widest font-mono text-center pointer-events-auto mb-2 md:mb-0">
+            CREADO POR <a href="https://rodria45.github.io/rodrigo-antunez-portfolio/" target="_blank" rel="noopener noreferrer" className="text-accent font-bold hover:text-white transition-colors underline underline-offset-4 decoration-accent/50 hover:decoration-white">RODRIGO ANTUNEZ</a>
+          </div>
+
           <div className="text-[10px] md:text-xs text-accent/60 uppercase tracking-widest font-mono flex gap-4">
             <span className="hidden sm:inline">PAN: CLIC DERECHO</span>
             <span className="hidden sm:inline">ORBITAR: CLIC IZQUIERDO</span>
