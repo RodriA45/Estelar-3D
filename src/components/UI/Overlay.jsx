@@ -162,6 +162,8 @@ export default function Overlay({ activeTarget, setActiveTarget, cameraDistance,
       setActiveTarget(id);
     }
     
+    setIsPiloting(false);
+    setIsTourActive(false);
     setIsSearchActive(false);
     setSearchQuery('');
   };
