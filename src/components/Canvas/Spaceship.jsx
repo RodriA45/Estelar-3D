@@ -316,10 +316,13 @@ export default function Spaceship({ isPiloting, shipModel = 'ranger' }) {
 
     // Follow the ship with the camera
     if (controlsRef.current) {
-      const diff = point.clone().sub(prevShipPos.current);
-      camera.position.add(diff);
+      // Calculate the ideal camera position (behind and slightly above the ship)
+      const idealOffset = tangent.clone().multiplyScalar(-8).add(new THREE.Vector3(0, 3, 0));
+      const idealPos = point.clone().add(idealOffset);
+      
+      // Smoothly interpolate the camera to the ideal position (spring-back effect)
+      camera.position.lerp(idealPos, delta * 3);
       controlsRef.current.target.copy(point);
-      prevShipPos.current.copy(point);
     }
   });
 
