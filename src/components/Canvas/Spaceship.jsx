@@ -166,7 +166,7 @@ const UFOModel = () => {
   return (
     <group scale={0.05}>
       {/* Saucer body — smooth lathe hull instead of a flat cylinder */}
-      <mesh geometry={ufoHullGeo}>
+      <mesh geometry={ufoHullGeo} rotation={[-Math.PI / 2, 0, 0]}>
         {/* Lowered metalness and increased roughness so it catches diffuse light in empty space */}
         <meshStandardMaterial color="#b0b5ba" metalness={0.5} roughness={0.4} />
       </mesh>
