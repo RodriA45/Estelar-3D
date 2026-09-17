@@ -136,8 +136,8 @@ const RangerModel = () => {
       </mesh>
 
       {/* One shared light for the whole engine cluster instead of three
-          separate point lights — this is the main perf win. */}
-      <pointLight position={[0, -0.05, -5.5]} color="#ffd9a8" intensity={1.4} distance={9} decay={2} />
+          separate point lights — this is the main perf win. Moved further back to avoid blowing out the hull. */}
+      <pointLight position={[0, -0.05, -6.5]} color="#ffd9a8" intensity={0.5} distance={6} decay={2} />
     </group>
   );
 };
@@ -266,8 +266,8 @@ const XWingModel = () => {
         </group>
       ))}
 
-      {/* Single shared light for the whole engine set */}
-      <pointLight position={[0, 0, -3.4]} color="#ff8a7a" intensity={1.3} distance={10} decay={2} />
+      {/* Single shared light for the whole engine set, moved further back and dimmed to prevent blowing out the hull */}
+      <pointLight position={[0, 0, -4.5]} color="#ff8a7a" intensity={0.5} distance={6} decay={2} />
     </group>
   );
 };
