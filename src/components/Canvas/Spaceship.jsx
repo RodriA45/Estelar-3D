@@ -63,7 +63,7 @@ const rangerFinGeo = createWingGeometry(1.6, 0.5, 1.6, -0.6);
 const RangerModel = () => {
 
   return (
-    <group scale={0.05} rotation={[0, 0, 0]}>
+    <group scale={0.05} rotation={[0, Math.PI, 0]}>
       {/* Main Hull — tapered, rounded fuselage */}
       <mesh geometry={rangerHullGeo} castShadow receiveShadow>
         <meshStandardMaterial color="#d7dade" metalness={0.65} roughness={0.35} />
@@ -93,7 +93,7 @@ const RangerModel = () => {
       <mesh geometry={rangerWingGeo} position={[1.1, -0.05, -1.4]} rotation={[0, 0, -0.12]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
-      <mesh geometry={rangerWingGeo} position={[-1.1, -0.05, -1.4]} rotation={[0, Math.PI, 0.12]}>
+      <mesh geometry={rangerWingGeo} position={[-1.1, -0.05, -1.4]} rotation={[0, 0, -0.12]} scale={[-1, 1, 1]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
 
@@ -101,7 +101,7 @@ const RangerModel = () => {
       <mesh geometry={rangerFinGeo} position={[0.35, 0.55, -3.6]} rotation={[0.3, 0, -0.5]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
-      <mesh geometry={rangerFinGeo} position={[-0.35, 0.55, -3.6]} rotation={[0.3, 0, 0.5]}>
+      <mesh geometry={rangerFinGeo} position={[-0.35, 0.55, -3.6]} rotation={[0.3, 0, -0.5]} scale={[-1, 1, 1]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
 
@@ -135,9 +135,6 @@ const RangerModel = () => {
         <meshBasicMaterial color="#ffb066" toneMapped={false} />
       </mesh>
 
-      {/* One shared light for the whole engine cluster instead of three
-          separate point lights — this is the main perf win. Moved further back to avoid blowing out the hull. */}
-      <pointLight position={[0, -0.05, -6.5]} color="#ffd9a8" intensity={0.5} distance={6} decay={2} />
     </group>
   );
 };
@@ -225,7 +222,7 @@ const xwingWingGeo = createWingGeometry(4.4, 0.6, 5.0, -1.2);
 const XWingModel = () => {
 
   return (
-    <group scale={0.05} rotation={[0, 0, 0]}>
+    <group scale={0.05} rotation={[0, Math.PI, 0]}>
       {/* Fuselage */}
       <mesh geometry={xwingHullGeo}>
         <meshStandardMaterial color="#e8e8e6" metalness={0.5} roughness={0.5} />
@@ -266,8 +263,6 @@ const XWingModel = () => {
         </group>
       ))}
 
-      {/* Single shared light for the whole engine set, moved further back and dimmed to prevent blowing out the hull */}
-      <pointLight position={[0, 0, -4.5]} color="#ff8a7a" intensity={0.5} distance={6} decay={2} />
     </group>
   );
 };
