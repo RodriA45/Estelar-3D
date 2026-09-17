@@ -93,7 +93,7 @@ const RangerModel = () => {
       <mesh geometry={rangerWingGeo} position={[1.1, -0.05, -1.4]} rotation={[0, 0, -0.12]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
-      <mesh geometry={rangerWingGeo} position={[-1.1, -0.05, -1.4]} rotation={[0, Math.PI, -0.12]}>
+      <mesh geometry={rangerWingGeo} position={[-1.1, -0.05, -1.4]} rotation={[0, Math.PI, 0.12]}>
         <meshStandardMaterial color="#c7cbd1" metalness={0.6} roughness={0.4} />
       </mesh>
 
