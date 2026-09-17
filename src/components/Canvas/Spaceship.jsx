@@ -270,18 +270,15 @@ const XWingModel = () => {
 // ---------------------------------------------------------------------------
 // Tour Curve Precomputation
 // ---------------------------------------------------------------------------
-// A roller-coaster route that weaves through the solar system instead of empty space.
 const tourCurve = new THREE.CatmullRomCurve3([
-  new THREE.Vector3(-3, 1.5, 5),    // Near Earth
-  new THREE.Vector3(-1.5, -1, 1.5), // Diving towards the Sun
-  new THREE.Vector3(1.5, 1, -1.5),  // Slingshot around the Sun
-  new THREE.Vector3(5, 0.5, -3),    // Flying past Mars
-  new THREE.Vector3(11, -2, 7),     // Diving under Jupiter
-  new THREE.Vector3(9, 3, 10),      // Sweeping up and over Jupiter
-  new THREE.Vector3(-10, 2, 5),     // Cruising through the asteroid belt
-  new THREE.Vector3(-20, 0.5, 2),   // Skimming Saturn's rings
-  new THREE.Vector3(-25, -1, -1),   // Looping around Saturn
-  new THREE.Vector3(-15, -2, 1),    // Heading back to the inner system
+  new THREE.Vector3(0, 0, 30),
+  new THREE.Vector3(20, 5, 20),
+  new THREE.Vector3(30, 0, 0),
+  new THREE.Vector3(20, -5, -20),
+  new THREE.Vector3(0, 0, -30),
+  new THREE.Vector3(-20, 5, -20),
+  new THREE.Vector3(-30, 0, 0),
+  new THREE.Vector3(-20, -5, 20),
 ], true); // true = closed loop
 
 const tourLinePoints = tourCurve.getPoints(100);
