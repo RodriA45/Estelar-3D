@@ -311,15 +311,12 @@ export default function Spaceship({ isPiloting, shipModel = 'ranger' }) {
     // Add a slight banking roll effect based on curvature (optional polish)
     shipRef.current.rotateZ(Math.sin(progress.current * Math.PI * 4) * 0.3);
 
-    // Follow the ship with the camera
+    // Follow the ship with the camera (translation only, allows user to Orbit freely)
     if (controlsRef.current) {
-      // Calculate the ideal camera position (behind and slightly above the ship)
-      const idealOffset = tangent.clone().multiplyScalar(-8).add(new THREE.Vector3(0, 3, 0));
-      const idealPos = point.clone().add(idealOffset);
-      
-      // Smoothly interpolate the camera to the ideal position (spring-back effect)
-      camera.position.lerp(idealPos, delta * 3);
+      const diff = point.clone().sub(prevShipPos.current);
+      camera.position.add(diff);
       controlsRef.current.target.copy(point);
+      prevShipPos.current.copy(point);
     }
   });
 
